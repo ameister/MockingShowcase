@@ -1,5 +1,11 @@
-package ch.bbv.mockingshowcase;
+package ch.bbv.mockingshowcase.backoffice;
 
+import ch.bbv.mockingshowcase.backoffice.AmountCalculator;
+import ch.bbv.mockingshowcase.backoffice.Invoice;
+import ch.bbv.mockingshowcase.media.Book;
+import ch.bbv.mockingshowcase.media.CD;
+import ch.bbv.mockingshowcase.media.DVD;
+import ch.bbv.mockingshowcase.media.Media;
 import mockit.Mock;
 import mockit.MockUp;
 import mockit.Mocked;
@@ -10,6 +16,7 @@ import org.junit.runners.Parameterized;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Currency;
 import java.util.List;
 
 import static org.hamcrest.core.Is.is;
@@ -22,15 +29,15 @@ import static org.junit.Assert.*;
 public class AmountCalculatorParameterizedJMockitTest {
 
     private final BigDecimal price;
-    private final PriceAware media;
+    private final Media media;
 
-    public AmountCalculatorParameterizedJMockitTest(BigDecimal price, PriceAware media) {
+    public AmountCalculatorParameterizedJMockitTest(BigDecimal price, Media media) {
         this.price = price;
         this.media = media;
     }
 
     @Parameterized.Parameters
-    public static List<Object[]> balanceRates() {
+    public static List<Object[]> createMedias() {
         /*
         * Hier werden MockUps verwendet, wo jede Methode die gemockt werden soll, deklariert werden muss.
         * http://jmockit.org/api1x/mockit/MockUp.html
@@ -39,19 +46,19 @@ public class AmountCalculatorParameterizedJMockitTest {
         * */
         final Book book = new MockUp<Book>() {
             @Mock
-            BigDecimal getPrice() {
+            BigDecimal getPrice(Currency currency) {
                 return BigDecimal.TEN;
             }
         }.getMockInstance();
         final CD cd = new MockUp<CD>() {
             @Mock
-            BigDecimal getPrice() {
+            BigDecimal getPrice(Currency currency) {
                 return new BigDecimal("55");
             }
         }.getMockInstance();
         final DVD dvd = new MockUp<DVD>() {
             @Mock
-            BigDecimal getPrice() {
+            BigDecimal getPrice(Currency currency) {
                 return BigDecimal.ONE;
             }
         }.getMockInstance();

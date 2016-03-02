@@ -1,4 +1,4 @@
-package ch.bbv.mockingshowcase;
+package ch.bbv.mockingshowcase.processing;
 
 /**
  * Created by MeisAnd1 on 04.02.2016.
@@ -11,7 +11,7 @@ public final class SequenceSample<T, V extends Parameter> {
     }
 
     public T doSequence(V parameter) {
-        // Muss in genau dieser Reihenfolge ausgef�hrt werden
+        // Muss in genau dieser Reihenfolge ausgeführt werden
         parameter.prepare();
         processor.preProcess(parameter);
         final T result = processor.process(parameter);

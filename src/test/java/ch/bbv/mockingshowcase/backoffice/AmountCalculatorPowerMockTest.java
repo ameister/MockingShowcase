@@ -1,4 +1,4 @@
-package ch.bbv.mockingshowcase;
+package ch.bbv.mockingshowcase.backoffice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

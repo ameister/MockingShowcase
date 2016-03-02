@@ -1,4 +1,4 @@
-package ch.bbv.mockingshowcase;
+package ch.bbv.mockingshowcase.backoffice;
 
 import mockit.*;
 import mockit.integration.junit4.JMockit;

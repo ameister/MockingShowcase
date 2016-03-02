@@ -1,4 +1,4 @@
-package ch.bbv.mockingshowcase;
+package ch.bbv.mockingshowcase.processing;
 
 import java.util.Collection;
 import java.util.concurrent.Callable;

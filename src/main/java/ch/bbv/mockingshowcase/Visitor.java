@@ -1,6 +1,8 @@
 package ch.bbv.mockingshowcase;
 
+import ch.bbv.mockingshowcase.media.Media;
+
 public interface Visitor{
 
-  void visit(PriceAware media);
+  void visit(Media media);
 }

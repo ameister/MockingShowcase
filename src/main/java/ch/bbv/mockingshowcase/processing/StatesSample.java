@@ -1,4 +1,4 @@
-package ch.bbv.mockingshowcase;
+package ch.bbv.mockingshowcase.processing;
 
 import java.util.ArrayList;
 import java.util.Collection;

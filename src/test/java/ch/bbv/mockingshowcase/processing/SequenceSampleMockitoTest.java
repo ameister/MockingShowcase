@@ -1,4 +1,4 @@
-package ch.bbv.mockingshowcase;
+package ch.bbv.mockingshowcase.processing;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,9 +27,9 @@ public class SequenceSampleMockitoTest {
         //when
         testSubject.doSequence(parameter);
         //then
-        //Mit Mockito sind die Fehlerausgaben sch�ner als bei JMockit, wenn die Reihenfolge nicht eingehalten ist
+        //Mit Mockito sind die Fehlerausgaben schöner als bei JMockit, wenn die Reihenfolge nicht eingehalten ist
         // Reihenfolge InOrder relevant?
-        // Die Reihenfolge wie die Mocks hier �bergeben werden ist irrelevant
+        // Die Reihenfolge wie die Mocks hier übergeben werden ist irrelevant
         InOrder inOrder = inOrder(processor, parameter);
         // hier wird die Reienfolge festgelegt:
         inOrder.verify(parameter).prepare();
